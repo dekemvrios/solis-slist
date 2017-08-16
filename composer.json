@@ -1,0 +1,28 @@
+{
+  "name": "solis/phpslist",
+  "description": "Slist é um simples mecanismo para construção de listas",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Rafael Becker",
+      "email": "rafael@beecker.com.br"
+    }
+  ],
+  "require": {
+    "solis/phpbreaker": "~v1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.*",
+    "squizlabs/php_codesniffer": "3.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Solis\\SList\\": "src"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit tests/",
+    "sniff": "vendor/bin/phpcs --standard=psr2 src/",
+    "fix-sniff": "vendor/bin/phpcbf --standard=psr2 src/"
+  }
+}
