@@ -13,30 +13,30 @@ class MockList
      */
     public function getList()
     {
-        $list = SList::make();
+        $data = [
+            [
+                1,
+                'first item of the list',
+            ],
+            [
+                2,
+                'second item of the list',
+            ],
+            [
+                3,
+                'third item of the list',
+            ],
+            [
+                4,
+                'fourth item of the list',
+            ],
+            [
+                4,
+                'fifth item of the list, but its value is 4',
+            ],
+        ];
 
-        $list->addItem(
-            1,
-            'first item of the list'
-        );
-        $list->addItem(
-            2,
-            'second item of the list'
-        );
-        $list->addItem(
-            3,
-            'third item of the list'
-        );
-        $list->addItem(
-            4,
-            'fourth item of the list'
-        );
-        $list->addItem(
-            4,
-            'fifth item of the list, but its value is 4'
-        );
-
-        return $list;
+        return SList::make($data);
     }
 }
 

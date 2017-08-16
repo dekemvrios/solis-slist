@@ -16,11 +16,44 @@ class SList extends SListAbstract
 {
 
     /**
+     * @param array $data
+     *
      * @return static
+     *
+     * @throws TExceptionAbstract
      */
-    public static function make()
+    public static function make(array $data = [])
     {
-        return new static(new Compare());
+        $instance = new static(new Compare());
+
+        if (!empty($data)) {
+            foreach ($data as $entry) {
+                if (!is_array($entry) || empty($entry)) {
+                    throw new TException(
+                        __CLASS__,
+                        __METHOD__,
+                        "entry must be an not empty array",
+                        400
+                    );
+                }
+
+                if (count($entry) == 1) {
+                    throw new TException(
+                        __CLASS__,
+                        __METHOD__,
+                        "entry have two indexes. First for value e second for label",
+                        400
+                    );
+                }
+
+                $instance->addItem(
+                    $entry[0],
+                    $entry[1]
+                );
+            }
+        }
+
+        return $instance;
     }
 
     /**
