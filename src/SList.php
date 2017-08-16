@@ -5,6 +5,7 @@ namespace Solis\SList;
 use Solis\Breaker\Abstractions\TExceptionAbstract;
 use Solis\SList\Abstractions\SListAbstract;
 use Solis\Breaker\TException;
+use Solis\SList\Helpers\Compare;
 
 /**
  * Class SList
@@ -19,7 +20,7 @@ class SList extends SListAbstract
      */
     public static function make()
     {
-        return new static();
+        return new static(new Compare());
     }
 
     /**
@@ -52,7 +53,12 @@ class SList extends SListAbstract
             );
         }
 
-        $this->addEntry(SEntry::make($value, $label));
+        $this->addEntry(
+            SEntry::make(
+                $value,
+                $label
+            )
+        );
 
         return $this;
     }
