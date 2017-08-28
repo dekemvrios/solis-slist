@@ -155,7 +155,7 @@ abstract class SListAbstract
         }
 
         $newList = new static();
-        $newList->setEntries($entries);
+        $newList->setEntries(array_values($entries));
 
         return $newList;
     }
